@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Builder.Pizza;
+import org.example.Builder.PizzaBuilder;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 
@@ -14,6 +16,12 @@ public class Main {
         Document doc = new PDFFactory().createDocument();
         doc.addText("Hello, This is Nick");
         doc.save();
+
+        // Builder
+        PizzaBuilder PB = new PizzaBuilder();
+        PB.addDough();
+        PB.addCheese();
+        Pizza pizza = PB.build();
 
     }
 }
