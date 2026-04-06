@@ -4,6 +4,7 @@ import org.example.Builder.Pizza;
 import org.example.Builder.PizzaBuilder;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
+import org.example.Prototype.CarMaker;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -23,5 +24,8 @@ public class Main {
         PB.addCheese();
         Pizza pizza = PB.build();
 
+        // Prototype
+        CarMaker cm1 = new CarMaker("Red");
+        CarMaker cm2 = cm1.clone();
     }
 }
