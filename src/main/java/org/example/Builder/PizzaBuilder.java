@@ -1,15 +1,17 @@
 package org.example.Builder;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class PizzaBuilder implements Builder{
     private Map<String, Boolean> ingredients;
 
      public PizzaBuilder(){
-        ingredients.put("dough", false);
-        ingredients.put("sause", false);
-        ingredients.put("cheese", false);
-        ingredients.put("basil", false);
+         ingredients = new HashMap<>();
+         ingredients.put("dough", false);
+         ingredients.put("sause", false);
+         ingredients.put("cheese", false);
+         ingredients.put("basil", false);
     }
 
     public Pizza build(){

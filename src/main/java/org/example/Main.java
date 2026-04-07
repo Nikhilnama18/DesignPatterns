@@ -5,6 +5,7 @@ import org.example.Builder.Pizza;
 import org.example.Builder.PizzaBuilder;
 import org.example.ChainOfResponsibility.ChainOfResponsibility;
 import org.example.ChainOfResponsibility.Logger;
+import org.example.Command.*;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 import org.example.Observer.CurrentConditionsDisplay;
@@ -65,5 +66,22 @@ public class Main {
 
         wheatherForecast.setWheather(25, 12, 200);
         wheatherForecast.setWheather(5, 30, 170);
+
+        // Command
+        TV tv = new TV(10, "Off");
+        Command on = new TurnOnCommand(tv);
+        Command off = new TurnOffCommand(tv);
+        Command volUp = new VolumeDownCommand(tv);
+        Command volDown = new VolumeDownCommand(tv);
+
+        Remote remote = new Remote();
+
+        remote.pressButton(on);
+        remote.pressButton(volUp);
+        remote.pressButton(volUp);
+        remote.pressButton(volUp);
+        remote.pressButton(volDown);
+        remote.pressButton(off);
+
     }
 }
