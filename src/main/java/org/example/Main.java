@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Adapter.*;
 import org.example.Builder.Pizza;
 import org.example.Builder.PizzaBuilder;
 import org.example.FactoryMethod.Document;
@@ -31,5 +32,17 @@ public class Main {
 
         // Singleton
         GoogleCloudConnector gcc = GoogleCloudConnector.getInstance();
+
+        // Adapter
+        MediaPlayer player = new MP3Player();
+        player.playMP3("Title track MP3 file");
+
+        AdvancedMediaPlayer advPlayer = new AdvancePlayer();
+        advPlayer.playVLC("High number track VLC file");
+
+        Adapter adapter = new Adapter(advPlayer);
+        adapter.playMP3("Title track MP3 file");
+
+
     }
 }
