@@ -3,6 +3,8 @@ package org.example;
 import org.example.Adapter.*;
 import org.example.Builder.Pizza;
 import org.example.Builder.PizzaBuilder;
+import org.example.ChainOfResponsibility.ChainOfResponsibility;
+import org.example.ChainOfResponsibility.Logger;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 import org.example.Prototype.CarMaker;
@@ -43,6 +45,10 @@ public class Main {
         Adapter adapter = new Adapter(advPlayer);
         adapter.playMP3("Title track MP3 file");
 
+        // ChainOfResponsibility
+        Logger logger = ChainOfResponsibility.getChainOfLoggers();
 
+        logger.logMessage(Logger.INFO, "It's an info log");
+        logger.logMessage(Logger.ERROR, "It's an error log");
     }
 }
