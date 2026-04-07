@@ -5,6 +5,7 @@ import org.example.Builder.PizzaBuilder;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 import org.example.Prototype.CarMaker;
+import org.example.Singleton.GoogleCloudConnector;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -27,5 +28,8 @@ public class Main {
         // Prototype
         CarMaker cm1 = new CarMaker("Red");
         CarMaker cm2 = cm1.clone();
+
+        // Singleton
+        GoogleCloudConnector gcc = GoogleCloudConnector.getInstance();
     }
 }
