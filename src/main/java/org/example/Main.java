@@ -7,6 +7,10 @@ import org.example.ChainOfResponsibility.ChainOfResponsibility;
 import org.example.ChainOfResponsibility.Logger;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
+import org.example.Observer.CurrentConditionsDisplay;
+import org.example.Observer.FuturePredictor;
+import org.example.Observer.Observer;
+import org.example.Observer.WheatherForecast;
 import org.example.Prototype.CarMaker;
 import org.example.Singleton.GoogleCloudConnector;
 
@@ -50,5 +54,16 @@ public class Main {
 
         logger.logMessage(Logger.INFO, "It's an info log");
         logger.logMessage(Logger.ERROR, "It's an error log");
+
+        // Observer
+        WheatherForecast wheatherForecast = new WheatherForecast();
+        Observer ccD = new CurrentConditionsDisplay();
+        Observer weatherPredictor = new FuturePredictor();
+
+        wheatherForecast.registerObserver(ccD);
+        wheatherForecast.registerObserver(weatherPredictor);
+
+        wheatherForecast.setWheather(25, 12, 200);
+        wheatherForecast.setWheather(5, 30, 170);
     }
 }
