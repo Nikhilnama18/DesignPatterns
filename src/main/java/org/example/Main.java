@@ -8,6 +8,7 @@ import org.example.ChainOfResponsibility.Logger;
 import org.example.Command.*;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
+import org.example.Iterator.*;
 import org.example.Observer.CurrentConditionsDisplay;
 import org.example.Observer.FuturePredictor;
 import org.example.Observer.Observer;
@@ -83,5 +84,21 @@ public class Main {
         remote.pressButton(volDown);
         remote.pressButton(off);
 
+        // Iterator
+        Playlist playlist = new Playlist();
+        playlist.addDefaultSongs();
+
+        Iterator<Song> sName = new SongNameIterator(playlist);
+        Iterator<Song> sTitle = new SongTitleIterator(playlist);
+
+        sName.getCurrent().play();
+        if(sName.hasNext())
+            sName.next();
+        sName.getCurrent().play();
+
+        sTitle.getCurrent().play();
+        if(sTitle.hasNext())
+            sTitle.next();
+        sTitle.getCurrent().play();
     }
 }
