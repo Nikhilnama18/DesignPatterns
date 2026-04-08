@@ -16,6 +16,11 @@ import org.example.Observer.WheatherForecast;
 import org.example.Prototype.CarMaker;
 import org.example.Singleton.GoogleCloudConnector;
 import org.example.State.RegistrationForm;
+import org.example.Strategy.BubbleSort;
+import org.example.Strategy.Sorter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -113,5 +118,19 @@ public class Main {
         form.next();
         form.previous();
         form.displayCurrentStep();
+
+        // Strategy
+        Sorter sorter = new Sorter(new BubbleSort());
+        List<Integer>arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(12);
+        arr.add(2);
+
+        List<Integer> sortedEle = sorter.sort(arr);
+
+        for (Integer num : sortedEle){
+            System.out.println(num);
+        }
+
     }
 }
