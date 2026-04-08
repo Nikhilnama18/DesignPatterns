@@ -15,6 +15,7 @@ import org.example.Observer.Observer;
 import org.example.Observer.WheatherForecast;
 import org.example.Prototype.CarMaker;
 import org.example.Singleton.GoogleCloudConnector;
+import org.example.State.RegistrationForm;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -100,5 +101,17 @@ public class Main {
         if(sTitle.hasNext())
             sTitle.next();
         sTitle.getCurrent().play();
+
+        // State
+        RegistrationForm form = new RegistrationForm();
+        form.displayCurrentStep();
+        form.enterData("Nikhil", "nick1111");
+        form.displayCurrentStep();
+
+        form.next();
+        form.enterData("SDE 2", "4");
+        form.next();
+        form.previous();
+        form.displayCurrentStep();
     }
 }
