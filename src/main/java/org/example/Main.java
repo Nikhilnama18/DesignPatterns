@@ -9,6 +9,8 @@ import org.example.Command.*;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 import org.example.Iterator.*;
+import org.example.Memento.History;
+import org.example.Memento.TextEditor;
 import org.example.Observer.CurrentConditionsDisplay;
 import org.example.Observer.FuturePredictor;
 import org.example.Observer.Observer;
@@ -132,5 +134,18 @@ public class Main {
             System.out.println(num);
         }
 
+        // Memento
+        TextEditor editor = new TextEditor();
+        History history = new History();
+
+        editor.setText("Hello");
+        history.save(editor);
+
+        editor.setText("Welcome everyone");
+        history.save(editor);
+
+        System.out.println("Current text is: " + editor.getText());
+        history.undo(editor);
+        System.out.println("Text after undo is: " + editor.getText());
     }
 }
