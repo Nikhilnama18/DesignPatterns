@@ -6,6 +6,9 @@ import org.example.Builder.PizzaBuilder;
 import org.example.ChainOfResponsibility.ChainOfResponsibility;
 import org.example.ChainOfResponsibility.Logger;
 import org.example.Command.*;
+import org.example.Decorator.Character;
+import org.example.Decorator.HealthUpgrader;
+import org.example.Decorator.Hero;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
 import org.example.Iterator.*;
@@ -147,5 +150,15 @@ public class Main {
         System.out.println("Current text is: " + editor.getText());
         history.undo(editor);
         System.out.println("Text after undo is: " + editor.getText());
+
+        // Decorator
+        Character hero = new Hero();
+        System.out.println("Hero health is " + hero.getHealth());
+        hero.takeDamage(10);
+        System.out.println("Hero health after damage " + hero.getHealth());
+
+        hero = new HealthUpgrader(hero);
+        System.out.println("Hero health after upgrade " + hero.getHealth());
+
     }
 }
