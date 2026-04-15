@@ -19,6 +19,8 @@ import org.example.Observer.FuturePredictor;
 import org.example.Observer.Observer;
 import org.example.Observer.WheatherForecast;
 import org.example.Prototype.CarMaker;
+import org.example.Proxy.Image;
+import org.example.Proxy.Proxy;
 import org.example.Singleton.GoogleCloudConnector;
 import org.example.State.RegistrationForm;
 import org.example.Strategy.BubbleSort;
@@ -159,6 +161,12 @@ public class Main {
 
         hero = new HealthUpgrader(hero);
         System.out.println("Hero health after upgrade " + hero.getHealth());
+
+        // Proxy
+        Image image = new Proxy("./users/nick/desktop/profile.jpg");
+        image.display();
+
+        image.display(); // Image is only loaded once
 
     }
 }
