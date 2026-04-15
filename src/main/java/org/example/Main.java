@@ -11,6 +11,8 @@ import org.example.Decorator.HealthUpgrader;
 import org.example.Decorator.Hero;
 import org.example.FactoryMethod.Document;
 import org.example.FactoryMethod.PDFFactory;
+import org.example.FlyWeight.Archer;
+import org.example.FlyWeight.ArcherFlyWeight;
 import org.example.Iterator.*;
 import org.example.Memento.History;
 import org.example.Memento.TextEditor;
@@ -167,6 +169,12 @@ public class Main {
         image.display();
 
         image.display(); // Image is only loaded once
+
+        // FlyWeight
+        ArcherFlyWeight flyWeight = new ArcherFlyWeight("Archer", "Bow");
+        Archer soldier1 = new Archer(flyWeight, "1.2", "2.2");
+        Archer soldier2 = new Archer(flyWeight, "2.2", "3.2");
+
 
     }
 }
